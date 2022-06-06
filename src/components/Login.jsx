@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { auth } from "../firebase";
-import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth';
 
 function Login() {
   let [email, setEmail] = useState("");
@@ -49,7 +49,22 @@ function Login() {
     await signOut(auth);
     setUser(null);
   }
-
+  useEffect(() => {
+    // aake call ho gya hai
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        setUser(user);
+        // ...
+      } else {
+        // User is signed out
+        // ...
+        setUser(null);
+      }
+      
+    });
+  }, []);
 
   return (
     <>
