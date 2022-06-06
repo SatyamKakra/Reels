@@ -49,6 +49,8 @@ function Login() {
     await signOut(auth);
     setUser(null);
   }
+
+
   useEffect(() => {
     // aake call ho gya hai
     onAuthStateChanged(auth, (user) => {
@@ -65,6 +67,8 @@ function Login() {
       
     });
   }, []);
+
+  
 
   return (
     <>
