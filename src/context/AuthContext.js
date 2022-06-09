@@ -7,7 +7,6 @@ export function AuthContextProvider({children}){
     let [maiLoader , setMainLoader] = useState(true);
     let [cUser, setUser] = useState(null);
     useEffect(() => {
-       // aake call ho gya hai
        onAuthStateChanged(auth, (user) => {
          if (user) {
            // User is signed in, see docs for a list of available properties
