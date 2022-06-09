@@ -13,7 +13,7 @@ function Profile() {
 " alt="" className="pimg" />
     </div>
     <div className="details">
-    <div className="content">Name</div>
+    <div className="content">Satyam</div>
     <div className="content">No Of Posts: <span className="bold_text">Posts</span></div>
     <div className="content">Email <span className="bold_text">Email.com</span></div>
     </div>
