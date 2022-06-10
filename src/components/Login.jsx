@@ -18,7 +18,7 @@ function Login() {
     setPassword(e.target.value);
   }
 
-  const printDetails = async function (e) {
+  const printDetails = async function () {
     // alert(email + " " + password);
     try {
 
@@ -34,16 +34,6 @@ function Login() {
       }, 2000)
     }
     setLoader(false);
-
-    //     .then((userCredential) => {
-    //       // Signed in
-    //       var user = userCredential.user;
-    //       // ...
-    //     })
-    //     .catch((error) => {
-    //       var errorCode = error.code;
-    //       var errorMessage = error.message;
-    //     });
 
   }
   const signout = async function () {

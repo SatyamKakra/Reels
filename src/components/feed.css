@@ -1,0 +1,35 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.insta_img{
+    height: 3rem;
+}
+.profile_img{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.main_container{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.upload_container{
+    border: 2px solid lightpink;
+    display: flex;
+    width: 8rem;
+    height: 2rem;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.upload_text{
+    color: rgb(207,  64,  85);
+}
