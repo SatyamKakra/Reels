@@ -22,10 +22,10 @@ export function AuthContextProvider({children}){
          
        });
      }, []);
-     let value = {cUser};
+     let value = cUser
      return(
          <AuthContext.Provider value = {value }>
-             {!maiLoader  &&children}
+             {!maiLoader==false  &&children}
          </AuthContext.Provider>
      )
 }

@@ -8,7 +8,7 @@ function Login() {
   let [user, setUser] = useState(null);
   let [loader, setLoader] = useState(false);
   let [error, setError] = useState("");
-  let [maiLoader , setMainLoader] = useState("");
+ 
 
   const trackEmail = function (e) {
     setEmail(e.target.value);
@@ -65,7 +65,6 @@ function Login() {
         // ...
         setUser(null);
       }
-      setMainLoader(false);
       
     });
   }, []);
