@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Feed from './components/Feed';
 import Login from './components/Login';
 import PageNotFound from './components/PageNotFound';
 import Profile from './components/Profile';
 import Signup from './components/Signup';
 import { Switch, Route, Redirect } from "react-router-dom";
-import { AuthContextProvider } from './context/AuthContext';
+import { AuthContextProvider, AuthContext } from './context/AuthContext';
 
 
 function App() {
@@ -16,9 +16,6 @@ function App() {
       <AuthContextProvider>
         <Switch>
 
-          <Route path="/feed">
-            <Feed></Feed>
-          </Route>
 
           <Route path="/login">
             <Login></Login>
@@ -28,9 +25,13 @@ function App() {
             <Signup></Signup>
           </Route>
 
-          <Route path="/profile">
-            <Profile></Profile>
-          </Route>
+          <PrivateRoute path="/feed" comp={<Feed></Feed>}>
+            
+          </PrivateRoute>
+
+          <PrivateRoute path="/profile" comp={<Profile></Profile>}>
+            
+          </PrivateRoute>
 
           <Route>
             <PageNotFound></PageNotFound>
@@ -41,6 +42,24 @@ function App() {
 
     </>
   );
+}
+function PrivateRoute(props){
+  let component = props.comp;
+  // cheack -> are you logged in
+  let cUser = useContext(AuthContext);
+  //cUser -> null -> login page
+  // cUser -> anything
+  return(
+    <Route {...props}
+    render={
+      (props)=>{
+      //logic
+      return cUser != null ? <component{...props}></component>  :<Redirect to="/login"></Redirect>
+      }
+    }>
+
+    </Route>
+  )
 }
 
 export default App;

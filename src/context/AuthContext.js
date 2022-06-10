@@ -3,6 +3,8 @@ import {auth} from "../firebase";
 import {onAuthStateChanged} from "firebase/auth";
 export const AuthContext = React.createContext();
 
+// children is an inbuilt prop -> it refers to all the component specified inside 
+
 export function AuthContextProvider({children}){
     let [maiLoader , setMainLoader] = useState(true);
     let [cUser, setUser] = useState(null);
