@@ -58,7 +58,7 @@ function PrivateRoute(props){
       (props)=>{
       //logic
       return cUser != null ? <component{...props}></component>  :
-      <Redirect to="/login"></Redirect>
+      <Redirect {...props} to="/login"></Redirect>
       }
     }>
 
